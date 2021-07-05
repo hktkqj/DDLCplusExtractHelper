@@ -64,14 +64,14 @@ namespace DDLC
 
         static void Main(string[] args)
         {
+	    // Drag .cy file on compiled .exe program
             string file = args[0];
             XorFileStream fileStream = new XorFileStream(file, FileMode.Open, FileAccess.Read, 40);
             byte[] m_bytes = ReadToEnd(fileStream);
-            Console.WriteLine("Write to exported file...");
             File.WriteAllBytes(file + ".tmp", m_bytes);
-        }
 	}
 
+	// XorFileStream comes from reversed dll file
 	public class XorFileStream : Stream
 	{
 		public XorFileStream(string path, FileMode mode, FileAccess access, byte privateKey = 40)
